@@ -4,6 +4,7 @@ import Logo from "./Logo";
 import { useDashboardContext } from "../pages/DashboardLayout";
 export const Navbar = () => {
   const { toggleSidebar } = useDashboardContext();
+
   return (
     <Wrapper>
       <div className="nav-center">

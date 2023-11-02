@@ -9,26 +9,28 @@ const links = [
   {
     text: "add job",
     path: ".",
-    icons: <FaWpforms />,
+    icon: <FaWpforms />,
   },
   {
     text: "all jobs",
     path: "all-jobs",
-    icons: <MdQueryStats />,
+    icon: <MdQueryStats />,
   },
   {
     text: "stats",
     path: "stats",
-    icons: <IoBarChartSharp />,
+    icon: <IoBarChartSharp />,
   },
   {
     text: "profile",
     path: "profile",
-    icons: <ImProfile />,
+    icon: <ImProfile />,
   },
   {
     text: "admin",
     path: "admin",
-    icons: <MdAdminPanelSettings />,
+    icon: <MdAdminPanelSettings />,
   },
 ];
+
+export default links;
