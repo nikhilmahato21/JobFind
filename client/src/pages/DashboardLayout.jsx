@@ -28,12 +28,12 @@ const DashboardLayout = () => {
       value={{ user, showSideBar, isDarkTheme, toggleDarkTheme, toggleSidebar }}
     >
       <Wrapper>
-        <main className="dasboard">
+        <main className="dashboard">
           <SmallSidebar />
           <BigSidebar />
           <div>
             <Navbar />
-            <div className="dasboard-page">
+            <div className="dashboard-page">
               <Outlet />
             </div>
           </div>
