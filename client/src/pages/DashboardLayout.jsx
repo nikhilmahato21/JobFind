@@ -25,7 +25,14 @@ const DashboardLayout = () => {
 
   return (
     <DashboardContext.Provider
-      value={{ user, showSideBar, isDarkTheme, toggleDarkTheme, toggleSidebar }}
+      value={{
+        user,
+        showSideBar,
+        isDarkTheme,
+        toggleDarkTheme,
+        toggleSidebar,
+        logoutUser,
+      }}
     >
       <Wrapper>
         <main className="dashboard">
