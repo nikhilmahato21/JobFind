@@ -11,6 +11,14 @@ import AllJobs from "./pages/AllJobs";
 import Profile from "./pages/Profile";
 import Admin from "./pages/Admin";
 
+const checkDefaultTheme = () => {
+  const isDarkTheme = localStorage.getItem("darkTheme") === "true";
+  document.body.classList.toggle("dark-theme", isDarkTheme);
+  return isDarkTheme;
+};
+
+const isDarkThemeEnabled = checkDefaultTheme();
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -31,7 +39,7 @@ const router = createBrowserRouter([
       },
       {
         path: "dashboard",
-        element: <DashboardLayout />,
+        element: <DashboardLayout isDarkThemeEnabled={isDarkThemeEnabled} />,
         children: [
           { index: true, element: <AddJob /> },
           {
