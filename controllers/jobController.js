@@ -12,11 +12,15 @@ export const getAllJobs = async (req, res) => {
 };
 
 export const createJob = async (req, res) => {
-  const { company, position } = req.body;
+  try {
+    const { company, position } = req.body;
 
-  const job = await Job.create({ company, position });
+    const job = await Job.create({ company, position });
 
-  res.status(201).json({ job });
+    res.status(201).json({ job });
+  } catch (error) {
+    res.status(500).json({ msg: "server error" });
+  }
 };
 
 export const getJob = async (req, res) => {
