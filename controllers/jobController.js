@@ -1,13 +1,8 @@
 import Job from "../models/jobModel.js";
 
-import { nanoid } from "nanoid";
-
-let jobs = [
-  { id: nanoid(), company: "apple", position: "front-end" },
-  { id: nanoid(), company: "google", position: "back-end" },
-];
-
 export const getAllJobs = async (req, res) => {
+  const jobs = await Job.find({});
+
   res.json({ jobs });
 };
 
@@ -25,7 +20,7 @@ export const createJob = async (req, res) => {
 
 export const getJob = async (req, res) => {
   const { id } = req.params;
-  const job = jobs.find((job) => job.id === id);
+  const job = await Job.findById(id);
 
   if (!job) {
     return res.status(404).json({ msg: `No job with Id ${id}` });
