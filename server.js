@@ -8,7 +8,6 @@ import morgan from "morgan";
 import jobRouter from "./routes/jobRouter.js";
 import mongoose from "mongoose";
 import errorHandlerMiddleware from "./middleware/errorHandlerMiddleware.js";
-import { validateTest } from "./middleware/validationMiddleware.js";
 
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
@@ -18,11 +17,6 @@ app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send("home page");
-});
-
-app.post("/api/v1/test", validateTest, (req, res) => {
-  const { name } = req.body;
-  res.json({ message: `hello ${name}` });
 });
 
 app.use("/api/v1/jobs", jobRouter);
