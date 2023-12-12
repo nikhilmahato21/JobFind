@@ -20,15 +20,6 @@ const withValidationErrors = (validateValues) => {
   ];
 };
 
-// export const validateTest = withValidationErrors([
-//   body("name")
-//     .notEmpty()
-//     .withMessage("name is required")
-//     .isLength({ min: 3, max: 50 })
-//     .withMessage("name must be between 3 to 50 characters ")
-//     .trim(),
-// ]);
-
 export const validateJobInput = withValidationErrors([
   body("company").notEmpty().withMessage("company is required"),
   body("position").notEmpty().withMessage("position is required"),
@@ -74,4 +65,13 @@ export const validateRegisterInput = withValidationErrors([
     .withMessage("password must be atleast 8 characters long "),
   body("location").notEmpty().withMessage("location is required"),
   body("lastName").notEmpty().withMessage("last name is required"),
+]);
+
+export const validateLoginInput = withValidationErrors([
+  body("email")
+    .notEmpty()
+    .withMessage("email is required")
+    .isEmail()
+    .withMessage("invalid email format"),
+  body("password").notEmpty().withMessage("password is required"),
 ]);
