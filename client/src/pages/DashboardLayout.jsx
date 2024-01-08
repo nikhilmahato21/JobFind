@@ -3,11 +3,17 @@ import Wrapper from "../assets/wrappers/Dashboard";
 import BigSidebar from "../components/BigSidebar";
 import Navbar from "../components/Navbar";
 import SmallSidebar from "../components/SmallSidebar";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLoaderData } from "react-router-dom";
+
+export const loader = () => {
+  return "hello nigga...";
+};
 
 const DashboardContext = createContext();
 
 const DashboardLayout = ({ isDarkThemeEnabled }) => {
+  const data = useLoaderData();
+  console.log(data);
   const user = { name: "nik" };
   const [showSideBar, setShowSidebar] = useState(false);
   const [isDarkTheme, setIsDarkTheme] = useState(isDarkThemeEnabled);
