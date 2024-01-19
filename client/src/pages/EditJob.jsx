@@ -14,8 +14,17 @@ export const loader = async ({ params }) => {
   toast.error(error?.response?.data?.msg);
   return redirect("/dashboard/all-jobs");
 };
-export const action = async () => {
-  return null;
+export const action = async ({ request, params }) => {
+  const formData = await request.formData();
+  const data = Object.fromEntries(formData);
+  try {
+    await customFetch.patch(`/jobs/${params.id}`, data);
+    toast.success("job edited succesfuly!");
+    return redirect("/dashboard/all-jobs");
+  } catch (error) {
+    toast.error(error?.response?.data?.msg);
+    return error;
+  }
 };
 
 const EditJob = () => {
