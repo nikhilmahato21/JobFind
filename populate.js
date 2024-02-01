@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 dotenv.config();
 
-import Job from "./models/JobModel.js";
+import Job from "./models/jobModel.js";
 import User from "./models/UserModel.js";
 try {
   await mongoose.connect(process.env.MONGO_URL);
@@ -16,7 +16,7 @@ try {
   const jobs = jsonJobs.map((job) => {
     return { ...job, createdBy: user._id };
   });
-  await Job.deleteMany({ createdBy: user._id });
+  await JobModel.deleteMany({ createdBy: user._id });
   await Job.create(jobs);
   console.log("Success!!!");
   process.exit(0);
